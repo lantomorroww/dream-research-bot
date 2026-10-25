@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dream-research-bot"
+version = "1.0.0"
+description = "Telegram bot for a 7-day longitudinal dream diary study"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Dmitry", email = "noreply@example.com" }]
+keywords = ["telegram", "bot", "dream", "research", "psychology", "asyncio"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Framework :: AsyncIO",
+]
+
+dependencies = [
+    "python-telegram-bot[job-queue]>=20.7,<21.0",
+    "python-dotenv>=1.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+]
+
+[project.scripts]
+dream-bot = "main:main"
+
+[tool.setuptools]
+py-modules = ["main", "config"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
